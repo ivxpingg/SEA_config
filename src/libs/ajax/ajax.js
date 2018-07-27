@@ -83,13 +83,7 @@ Ajax.interceptors.response.use(function (response) {
             content: '您还未登录请先登陆！',
             okText: '登陆',
             onOk() {
-                if (window.location.href.indexOf('/manage') > 0) {
-                    window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
-                }
-                else {
-                    var url = "http://218.5.80.6:8070/OCEAN/api/login?url=" + window.location.href.replace('#', '\%23');
-                    window.location.href = url;
-                }
+                window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
             }
         });
     }
@@ -108,26 +102,11 @@ Ajax.interceptors.response.use(function (response) {
             content: '会话过期请重新登陆！',
             okText: '登陆',
             onOk() {
-                if (window.location.href.indexOf('/manage') > 0) {
-                    window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
-                }
-                else {
-                    var url = "http://218.5.80.6:8070/OCEAN/api/login?url=" + window.location.href.replace('#', '\%23');
-                    window.location.href = url;
-                }
+                window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
             }
         });
     }
 
-    // if(response.data.errCode === "A0002") {
-    //
-    //     let router = new VueRouter();
-    //     Cookie.unset('xmgd');
-    //     Cookie.unset('xmgdname');
-    //     Cookie.unset('logintime');
-    //     router.push('/');
-    //
-    // }
 
     return response.data;
 }, function (error) {

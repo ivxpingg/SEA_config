@@ -83,20 +83,20 @@ module.exports = {
         // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#configuring-proxy配置代理
         proxy:{   // string | Object
 
-            '/oceanobservation': {
-                target: 'http://110.86.21.246:8088',
-
-                ws: true,
-                changeOrigin: true
-            }
             // '/oceanobservation': {
-            //     target: 'http://192.168.0.122:8080',
-            //
+            //     target: 'http://xmsoc.com:20500',
             //     ws: true,
             //     changeOrigin: true
             // }
+
+            '/oceanobservation': {
+                target: 'http://192.168.0.140:8080',
+                ws: true,
+                changeOrigin: true
+            }
         },
-        before: app => {}
+        before: app => {
+        }
     },
 
     // 三方插件的选项

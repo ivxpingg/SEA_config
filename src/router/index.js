@@ -30,36 +30,36 @@ router.beforeEach((to, from, next) => {
         // 登陆有效期2个小时
         var addTimes = 2 * 60 * 60 * 1000;
         var path = Config[Config.env].path;
-        Cookie.write('token', to.query.token, new Date().getTime() + addTimes, path);       // 前台&后台
+        Cookie.write('sea_qj_token', to.query.token, new Date().getTime() + addTimes, path);       // 前台&后台
 
         if(to.query.uid !== undefined) {
-            Cookie.write('uid', to.query.uid, new Date().getTime() + addTimes, path);           // 前台&后台
+            Cookie.write('sea_qj_uid', to.query.uid, new Date().getTime() + addTimes, path);           // 前台&后台
         }
         else {
-            Cookie.remove('uid');
+            Cookie.remove('sea_qj_uid');
         }
 
         if(to.query.usertype !== undefined) {
-            Cookie.write('type', '', new Date().getTime() - addTimes, path);
-            Cookie.write('usertype', to.query.usertype, new Date().getTime() + addTimes, path); // 前台
+            Cookie.write('sea_qj_type', '', new Date().getTime() - addTimes, path);
+            Cookie.write('sea_qj_usertype', to.query.usertype, new Date().getTime() + addTimes, path); // 前台
         }
         else {
-            Cookie.remove('usertype');
+            Cookie.remove('sea_qj_usertype');
         }
 
         if(to.query.type !== undefined) {
-            Cookie.write('usertype', '', new Date().getTime() - addTimes, path);
-            Cookie.write('type', to.query.type, new Date().getTime() + addTimes, path);      // 后台
+            Cookie.write('sea_qj_usertype', '', new Date().getTime() - addTimes, path);
+            Cookie.write('sea_qj_type', to.query.type, new Date().getTime() + addTimes, path);      // 后台
         }
         else {
-            Cookie.remove('type');
+            Cookie.remove('sea_qj_type');
         }
 
         if(to.query.syscode !== undefined) {
-            Cookie.write('syscode', to.query.syscode, new Date().getTime() + addTimes, path);// 后台
+            Cookie.write('sea_qj_syscode', to.query.syscode, new Date().getTime() + addTimes, path);// 后台
         }
         else {
-            Cookie.remove('syscode');
+            Cookie.remove('sea_qj_syscode');
         }
 
 
@@ -94,9 +94,9 @@ router.beforeEach((to, from, next) => {
 
 
     }
-    else if (to.meta.requireAuth && Cookie.read('token') == null) {
+    else if (to.meta.requireAuth && Cookie.read('sea_qj_token') == null) {
 
-        window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
+        window.location.href = Config[Config.env].manageLogUrl;
 
     }
     else {

@@ -38,7 +38,8 @@
                     keyValue: '',
                     key: '',
                     title: '',
-                    value: ''
+                    value: '',
+                    roleNo: this.$store.state.roleNo
                 },
                 info_rules: {
                     key: [
@@ -114,7 +115,7 @@
                         })
 
                     }
-                    else {}
+                    else{ }
                 })
             }
         }

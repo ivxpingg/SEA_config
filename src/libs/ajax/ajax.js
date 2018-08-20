@@ -83,7 +83,7 @@ Ajax.interceptors.response.use(function (response) {
             content: '您还未登录请先登陆！',
             okText: '登陆',
             onOk() {
-                window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
+                window.location.href = Config[Config.env].manageLogUrl;
             }
         });
     }
@@ -102,7 +102,7 @@ Ajax.interceptors.response.use(function (response) {
             content: '会话过期请重新登陆！',
             okText: '登陆',
             onOk() {
-                window.location.href = 'http://218.5.80.6:8091/OCEANAM/logout';
+                window.location.href = Config[Config.env].manageLogUrl;
             }
         });
     }
